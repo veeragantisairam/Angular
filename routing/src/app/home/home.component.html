@@ -1,0 +1,37 @@
+<p>
+  home works!
+</p>
+
+
+<div *ngIf="users.length> 0;else nousers ">
+  <table class="table table-bordered">
+    <tr class="bgprimary">
+      <th>Id</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+
+    </tr>
+    <tr *ngFor="let user of users">
+      <th><a [routerLink]="['/user',user.id]">{{user.id}}</a></th>
+      <th> <a [routerLink]="['/user',user.id]">{{user.name}}</a></th>
+      <th>{{user.username}}</th>
+      <th>{{user.email}}</th>
+
+    </tr>
+
+  </table>
+</div>
+<ng-template #nousers>
+  <p class="alert alert-danger text-center">
+
+    <span> requested page not found {{errormsg}} </span><br>
+    <!-- <span>{{errormsg.name}}</span><br>
+    <span>{{errormsg.status}}</span><br>
+    <span>{{errormsg.statusText}}</span><br>
+    <span>{{errormsg.url}}</span> -->
+  </p>
+
+</ng-template>
+
+<button class="btn btn-primary" (click)="onLoadAbout()">serverpage</button>
